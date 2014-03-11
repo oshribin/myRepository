@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My todo list</title>
+		<script src = "jquery-1.11.0.js"></script>	
+	</head>
+	<body>
+	
+		</script>
+		<h1>My list</h1>
+		<input id = "misInput"
+				type = "textbox" 
+			   value = "what need to be done ?" />
+		<input id = "clckToInsert"
+		    	value = "add mission"
+		    	type = "button"/>
+		 <ul id = "list"></ul>
+		<p><b id = "counter">0</b> more mision to be done</p>	
+
+		 <script>
+		 $(document).ready(function () {
+		 	var count = 0;
+		 	$("#clckToInsert").click(function () {
+		 		var value = $('#misInput').val();
+		 		var deleter = "<a href = #> X </a>";
+		 		var li = '<li id = "item">' + value + deleter + '</li>';
+		 		var $li = $(li); 
+		 		$("#list").append($li);
+		 		count++;
+		 		$("#counter").html(count);
+		 		
+		 		$li.find('a').click(function () {
+		 			count--;
+		 			$(this).parent().remove();
+		 			$("#counter").html(count);
+				});
+		 	});
+		 });
+		 </script>
+	</body>
+</html>
